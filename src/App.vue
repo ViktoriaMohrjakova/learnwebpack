@@ -1,20 +1,19 @@
 <template>
-  <input type="text" v-model="name">
-  <button class="button" @click="items.push(name)">Add</button>  
-  <ul>
-      <li v-for="(item, key) in items" :key="index">{{ item }}</li>
-  </ul>
+<tabs :links="$router.getRoutes()" :current="$route.path"></tabs>
+<div class="container">
+        <section class="section">
+   <router-view></router-view>
+    </section>
+    </div>
 </template>
 
 <script>
+import Tabs from './components/Tabs.vue'
 export default {
-       data(){
-           return{
-               name: 'Tori',
-               count:0,
-               items: ['piim','sai','viin','banana']
-           }
-       }
+  components: { Tabs },
+  created(){
+      console.log(this.$router.getRoutes());
+  }
 }
 </script>
 
