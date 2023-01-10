@@ -1,12 +1,12 @@
 <template>
-  <div class="colums">
-      <div class="column is-one-third has-text-centered" >
+  <div class="columns ">
+      <div class="column is-half has-text-centered" >
           <b>{{displayCookies}} cookies</b>
           <br>
           <b> {{displayCps}} cookies per second</b>
-        <img @click="cookieClick" :class="{ 'click' : ClickClass}" src="https://www.picng.com/upload/cookie/png_cookie_11811.png">
+        <img @click="cookieClick" :class="{ 'click' : ClickClass}" src="https://www.picng.com/upload/cookie/png_cookie_11811.png" >
       </div>
-      <div class="column">
+      <div class="column is-one-third ">
           <button @click="upgrade(0.1, 10)" class="button is-primary" :disabled="cookies < 10">Buy 0.1 cps for 10 cookies</button>
           <button @click="upgrade(1, 100)" class="button is-primary" :disabled="cookies < 100">Buy 1 cps for 100 cookies</button>
           <button @click="upgrade(10, 1000)" class="button is-primary" :disabled="cookies < 1000">Buy 10 cps for 1000 cookies</button>
@@ -45,7 +45,7 @@ export default {
               this.ClickClass = true;
               setTimeout(()=> {
                        this.ClickClass = false;
-              }, 100);
+              }, 250);
           },
           upgrade(cps, cost){
           if(this.cookies >= cost){
@@ -59,7 +59,14 @@ export default {
 </script>
 
 <style scoped>
-    img.click {
-         transform: scale(0.9);
+    img { 
+        cursor:grab;
     }
+    img.click {
+         transform: scale(0.9); 
+         cursor: grabbing ;
+         content: url('https://static.vecteezy.com/system/resources/previews/009/400/072/original/homemade-tasty-cookies-clipart-design-illustration-free-png.png');
+
+    }
+   
 </style>
